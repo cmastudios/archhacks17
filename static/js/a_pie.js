@@ -59,28 +59,6 @@ var arc = d3.arc()
     .outerRadius(radius)
     .innerRadius(radius/2);
 
-/*var legend = svg.append("g")
-    .style("font-family", "sans-serif")
-    .attr("font-size", 10)
-    .attr("text-anchor", "end")
-    .attr("transform", function(d, i) { return "translate(" + (full_width/2+radius+40) + "," + (full_height/2-40) + ")"; })
-    .selectAll("g")
-    .data(pie(data))
-        .enter().append("g")
-        .attr("transform", function(d, i) { return "translate(0," + i*20 + ")"; });
-
-legend.append("rect")
-    .attr("x", 5)
-    .attr("width", 15)
-    .attr("height", 15)
-    .attr("fill", function(d, i) { return mat(i); });
-
-legend.append("text")
-    .attr("x", radius*2.5-5)
-    .attr("y", 7.5)
-    .attr("dy", "0.32em")
-    .text(function(d) { return d.data.nutrient; });*/
-
 redraw(generate());
 
 d3.interval(function() {

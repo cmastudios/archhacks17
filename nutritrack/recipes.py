@@ -174,16 +174,4 @@ def get_best_recipe(user):
             if j + 1 == len(sortedScores):
                 sortedScores.append(i + 1)
 
-    for i in range(600):
-        print("")
-        print(str(sortedScores[i]) + ":")
-        print(scores[sortedScores[i]])
-
-    print(recipes[sortedScores[599]]['recipe']['url'])
-    print(json.dumps(recipes[sortedScores[599]]['recipe']))
-    # print(recipes[0]['recipe']['totalNutrients'])
-
-    for i in range(10):
-        print(AvgdNuts[sortedScores[599]][i])
-
     return sortedScores

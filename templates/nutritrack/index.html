@@ -55,6 +55,10 @@
             }
         }
 
+        .data {
+            margin-top: 30px;
+        }
+
 
     </style>
 {% endblock %}
@@ -65,7 +69,7 @@
             <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item"><a class="nav-link active" href="#">Today's Nutrition Intake</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Kcal: {{ nut.kcal }} (of {{ user.profile.bmr|floatformat }})</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Kcal: {{ nut.kcal|floatformat }} (of {{ user.profile.bmr|floatformat }})</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Total fat: {{ nut.fat|floatformat }} g</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Total carbohydrates: {{ nut.carb|floatformat }} g</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">&raquo; of which sugars: {{ nut.sugar|floatformat }} g</a></li>
@@ -93,33 +97,33 @@
                 <!-- Example row of columns -->
                 <div class="row action">
                     <div class="col-md-4">
-                        <h2>Photo Meal Logger</h2>
+                        <h2><b>Photo Meal Logger</b></h2>
                         <p>Track your nutritional progress simply by uploading a picture of your next meal!</p>
                         <p><a class="btn btn-secondary" href="{% url 'report' %}" role="button">Upload &raquo;</a></p>
                     </div>
                     <div class="col-md-4">
-                        <h2>Find Recipes</h2>
+                        <h2><b>Find Recipes</b></h2>
                         <p>Click hear to explore our suggested recipes based on your nutrional intake.</p>
                         <p><a class="btn btn-secondary" href="{% url 'eat' %}" role="button">Check Suggestions &raquo;</a></p>
                     </div>
                     <div class="col-md-4">
-                        <h2>View Your Meals</h2>
-                        <p>Click to see your meal history</p>
+                        <h2><b>View Your Meals</b></h2>
+                        <p>Click to see a list of all meals you have logged over all time.</p>
                         <p><a class="btn btn-secondary" href="{% url 'meals' %}" role="button">Meals &raquo;</a></p>
                     </div>
                 </div>
 
                 <div class="row data">
                     <div class="col-md-4">
-                        <h2 style="text-decoration: underline;">Calories</h2>
+                        <h2><b>Calories</b></h2>
                         <svg id='calorie'></svg>
                     </div>
                     <div class="col-md-4">
-                        <h2 style="text-decoration: underline;">Protein</h2>
+                        <h2><b>Protein</b></h2>
                         <svg id='protein'></svg>
                     </div>
                     <div class="col-md-4">
-                        <h2 style="text-decoration: underline;">Carbohydrates</h2>
+                        <h2><b>Carbohydrates</b></h2>
                         <svg id='carbs'></svg>
                     </div>
                 </div>
@@ -163,7 +167,7 @@
 
 {#      var parseTime = d3.timeParse("%c");#}
 
-      var margin = {top: 30, right: 30, bottom: 30, left: 30},
+      var margin = {top: 30, right: 30, bottom: 30, left: 36},
       width = d3.max([200,window.innerWidth/5]) - margin.left - margin.right,
       height = 200 - margin.top - margin.bottom,
       full_width = width + margin.left + margin.right,
@@ -232,7 +236,7 @@
       g.append("g")
         .attr("class", "x-axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x).ticks(6));
 
       g.append("g")
         .attr("class", "y-axis")
@@ -288,7 +292,7 @@
       g.append("g")
         .attr("class", "x-axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x).ticks(6));
 
       g.append("g")
         .attr("class", "y-axis")
@@ -344,7 +348,7 @@
       g.append("g")
         .attr("class", "x-axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x).ticks(6));
 
       g.append("g")
         .attr("class", "y-axis")
@@ -373,5 +377,6 @@
           .attr("cy", line.y())
           .attr("r", 1.5);
       })();
+
     </script>
 {% endblock %}

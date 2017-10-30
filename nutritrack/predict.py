@@ -11,8 +11,8 @@ except ImportError:
 
 
 class CaffePredict(object):
-    def __init__(self, deploy_file='deploy.prototxt', caffe_model='snapshot_iter_35520.caffemodel',
-                 mean_file='mean.binaryproto', labels_file='labels.txt'):
+    def __init__(self, deploy_file='20171028-084239-ebda_epoch_60.0/deploy.prototxt', caffe_model='20171028-084239-ebda_epoch_60.0/snapshot_iter_35520.caffemodel',
+                 mean_file='20171028-084239-ebda_epoch_60.0/mean.binaryproto', labels_file='20171028-084239-ebda_epoch_60.0/labels.txt'):
         if caffe is None:
             return
 
