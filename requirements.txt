@@ -5,7 +5,7 @@ chardet==3.0.4
 cycler==0.10.0
 Cython==0.25.2
 decorator==4.0.11
-Django==1.11.6
+Django==1.11.23
 fuzzywuzzy==0.15.1
 h5py==2.7.0
 idna==2.6
